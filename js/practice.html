@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Dashboard</title>
+  <style>
+    /* styles.css */
+.dashboard {
+  display: flex;
+}
+
+.buttons {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.tab-button {
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #ddd;
+}
+
+.content {
+  flex: 3;
+  padding: 20px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="buttons">
+      <button class="tab-button active" onclick="showTab(0)">Section 1</button>
+      <button class="tab-button" onclick="showTab(1)">Section 2</button>
+      <button class="tab-button" onclick="showTab(2)">Section 3</button>
+    </div>
+    <div class="content">
+      <div class="tab-content active" id="tab1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur, praesentium.</div>
+      <div class="tab-content" id="tab2">Content of Section 2</div>
+      <div class="tab-content" id="tab3">Content of Section 3</div>
+    </div>
+  </div>
+  <script>
+    // script.js
+    function showTab(tabIndex) {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach((button, index) => {
+        if (index === tabIndex) {
+          button.classList.add('active');
+          tabContents[index].classList.add('active');
+        } else {
+          button.classList.remove('active');
+          tabContents[index].classList.remove('active');
+        }
+      });
+    }
+
+
+  </script>
+</body>
+</html>
